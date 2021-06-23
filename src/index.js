@@ -9,6 +9,7 @@ import App from './components/App';
 import reportWebVitals from './reportWebVitals';
 
 const store = createStore(reducer, applyMiddleware(thunkMiddleware));
+console.log(store.getState())
 
 ReactDOM.render(
   <React.StrictMode>
