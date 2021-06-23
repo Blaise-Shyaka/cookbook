@@ -10,7 +10,6 @@ function SingleMeal(props) {
   useEffect(() => {
     fetchOneMeal(id);
   })
-  console.log(oneMeal)
 
   const { strMeal, strInstructions, strTags, strMealThumb } = oneMeal;
 
