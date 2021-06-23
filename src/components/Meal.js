@@ -1,11 +1,12 @@
+import { Link } from "react-router-dom";
+
 export default function Meal(props) {
-  const { mealThumbnail, mealTitle } = props;
+  const { mealThumbnail, mealTitle, mealId } = props;
   return (
     <div>
-      <h1>One Meal</h1>
       <img src={mealThumbnail} alt={mealTitle}/>
       <div>
-        <p>{mealTitle}</p>
+        <Link to={`/meal/${mealId}`}>{mealTitle}</Link>
       </div>
     </div>
   );

@@ -1,11 +1,11 @@
 import Nav from './Nav';
 import Meals from './Meals';
-import Meal from './Meal';
 
 import {
   Switch,
   Route,
 } from "react-router-dom";
+import SingleMeal from './SingleMeal';
 
 function App() {
   return (
@@ -13,7 +13,7 @@ function App() {
       <Nav />
       <Switch>
         <Route exact path="/" component={Meals}></Route>
-        <Route path="/meal" component={Meal}></Route>
+        <Route path="/meal" component={SingleMeal}></Route>
       </Switch>
     </div>
   );
