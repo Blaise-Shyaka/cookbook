@@ -47,7 +47,7 @@ export function fetchByCategory(category) {
     const cleanCategoryName = category.trim().toLowerCase();
     dispatch(filterByCategory(cleanCategoryName));
     try {
-      const response = await fetch(`www.themealdb.com/api/json/v1/1/filter.php?c=${cleanCategoryName}`);
+      const response = await fetch(`https://www.themealdb.com/api/json/v1/1/filter.php?c=${cleanCategoryName}`);
       const data = await response.json();
       dispatch(updateMealsList(data.meals));
     } catch (e) {
@@ -61,7 +61,7 @@ export function fetchByArea(area) {
     const cleanAreaName = area.trim().toLowerCase();
     dispatch(filterByArea(cleanAreaName));
     try {
-      const response = await fetch(`www.themealdb.com/api/json/v1/1/filter.php?a=${cleanAreaName}`);
+      const response = await fetch(`https://www.themealdb.com/api/json/v1/1/filter.php?a=${cleanAreaName}`);
       const data = await response.json();
       dispatch(updateMealsList(data.meals));
     } catch (e) {
@@ -75,7 +75,7 @@ export function fetchBySearch(searchTerm) {
     const cleanSearchTerm = searchTerm.trim().toLowerCase();
     dispatch(search(cleanSearchTerm));
     try {
-      const response = await fetch(`www.themealdb.com/api/json/v1/1/search.php?s=${cleanSearchTerm}`);
+      const response = await fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=${cleanSearchTerm}`);
       const data = await response.json();
       dispatch(updateMealsList(data.meals));
     } catch (e) {

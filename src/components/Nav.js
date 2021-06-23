@@ -11,7 +11,7 @@ export default function Nav() {
         <button>Search</button>
       </div>
       <div>
-        <Filter defaultOption="Filter By Category" />
+        <Filter defaultOption="Filter By Category"/>
         <Filter defaultOption="Filter By Area"/>
       </div>
     </nav>
