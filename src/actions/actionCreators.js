@@ -1,4 +1,4 @@
-import { FILTERBYCATEGORY, FILTERBYAREA, SEARCH, UPDATEMEALS, GETCATEGORIES, GETAREAS } from "../actions/index";
+import { FILTERBYCATEGORY, FILTERBYAREA, SEARCH, UPDATEMEALS, GETCATEGORIES, GETAREAS, GETONEMEAL } from "../actions/index";
 
 export function filterByCategory(payload) {
   return {
@@ -39,6 +39,13 @@ export function getAreas(areas) {
   return {
     type: GETAREAS,
     payload: areas
+  }
+}
+
+export function getOneMeal(meal) {
+  return {
+    type: GETONEMEAL,
+    payload: meal
   }
 }
 
@@ -108,6 +115,20 @@ export function fetchAreas() {
       dispatch(getAreas(data.meals))
     } catch (e) {
       return e.message
+    }
+  }
+}
+
+export function fetchOneMeal(mealId) {
+  return async function(dispatch) {
+    const url = `https://www.themealdb.com/api/json/v1/1/lookup.php?i=${mealId}`;
+
+    try {
+      const response = await fetch(url);
+      const data = await response.json();
+      dispatch(getOneMeal(data.meals[0]))
+    } catch(e) {
+      return e.message;
     }
   }
 }

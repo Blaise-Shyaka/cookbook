@@ -1,4 +1,4 @@
-import { FILTERBYCATEGORY, FILTERBYAREA, SEARCH, UPDATEMEALS, GETCATEGORIES, GETAREAS } from '../actions/index';
+import { FILTERBYCATEGORY, FILTERBYAREA, SEARCH, UPDATEMEALS, GETCATEGORIES, GETAREAS, GETONEMEAL } from '../actions/index';
 const defaultState = {
   categoryFilter: '',
   areaFilter: '',
@@ -6,6 +6,7 @@ const defaultState = {
   meals: [],
   categories: [],
   areas: [],
+  oneMeal: '',
 }
 
 export default function reducer(state=defaultState, action) {
@@ -23,6 +24,8 @@ export default function reducer(state=defaultState, action) {
       return { ...state, categories: [...payload]}
     case GETAREAS:
       return { ...state, areas: [...payload]}
+    case GETONEMEAL:
+      return { ...state, oneMeal: payload}
     default:
       return state
   }

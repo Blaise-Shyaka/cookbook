@@ -13,7 +13,7 @@ function App() {
       <Nav />
       <Switch>
         <Route exact path="/" component={Meals}></Route>
-        <Route path="/meal" component={SingleMeal}></Route>
+        <Route path="/meal/:id" component={SingleMeal}></Route>
       </Switch>
     </div>
   );
