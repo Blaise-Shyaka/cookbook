@@ -6,12 +6,44 @@ import { fetchOneMeal } from '../actions/actionCreators';
 function SingleMeal(props) {
   const { id } = useParams()
   const { fetchOneMeal, oneMeal } = props
-  console.log('Single Meals', props)
+
   useEffect(() => {
     fetchOneMeal(id);
   })
 
   const { strMeal, strInstructions, strTags, strMealThumb } = oneMeal;
+  const ingredients = [
+    oneMeal.strIngredient1,
+    oneMeal.strIngredient2,
+    oneMeal.strIngredient3,
+    oneMeal.strIngredient4,
+    oneMeal.strIngredient5,
+    oneMeal.strIngredient6,
+    oneMeal.strIngredient7,
+    oneMeal.strIngredient8,
+    oneMeal.strIngredient9,
+    oneMeal.strIngredient10,
+    oneMeal.strIngredient11,
+    oneMeal.strIngredient12,
+  ]
+
+  const measures = [
+    oneMeal.strMeasure1,
+    oneMeal.strMeasure2,
+    oneMeal.strMeasure3,
+    oneMeal.strMeasure4,
+    oneMeal.strMeasure5,
+    oneMeal.strMeasure6,
+    oneMeal.strMeasure7,
+    oneMeal.strMeasure8,
+    oneMeal.strMeasure9,
+    oneMeal.strMeasure10,
+    oneMeal.strMeasure11,
+    oneMeal.strMeasure12,
+  ]
+
+  const ingredientsMarkup = ingredients.map(ingr => ingr && <li>{ingr}</li>)
+  const measuresMarkup = measures.map(mes => mes.trim() && <li>{mes}</li>)
 
   return (
     <div>
@@ -29,32 +61,10 @@ function SingleMeal(props) {
         </div>
         <div>
           <ul>
-            <li>{oneMeal.strIngredient1}</li>
-            <li>{oneMeal.strIngredient2}</li>
-            <li>{oneMeal.strIngredient3}</li>
-            <li>{oneMeal.strIngredient4}</li>
-            <li>{oneMeal.strIngredient5}</li>
-            <li>{oneMeal.strIngredient6}</li>
-            <li>{oneMeal.strIngredient7}</li>
-            <li>{oneMeal.strIngredient8}</li>
-            <li>{oneMeal.strIngredient9}</li>
-            <li>{oneMeal.strIngredient10}</li>
-            <li>{oneMeal.strIngredient11}</li>
-            <li>{oneMeal.strIngredient12}</li>
+            {ingredientsMarkup}
           </ul>
           <ul>
-            <li>{oneMeal.strMeasure1}</li>
-            <li>{oneMeal.strMeasure2}</li>
-            <li>{oneMeal.strMeasure3}</li>
-            <li>{oneMeal.strMeasure4}</li>
-            <li>{oneMeal.strMeasure5}</li>
-            <li>{oneMeal.strMeasure6}</li>
-            <li>{oneMeal.strMeasure7}</li>
-            <li>{oneMeal.strMeasure8}</li>
-            <li>{oneMeal.strMeasure9}</li>
-            <li>{oneMeal.strMeasure10}</li>
-            <li>{oneMeal.strMeasure11}</li>
-            <li>{oneMeal.strMeasure12}</li>
+            {measuresMarkup}
           </ul>
         </div>
       </div>
