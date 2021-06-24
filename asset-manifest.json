@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/cookbook/static/css/main.4b9a9ec3.chunk.css",
+    "main.js": "/cookbook/static/js/main.5889b2a7.chunk.js",
+    "main.js.map": "/cookbook/static/js/main.5889b2a7.chunk.js.map",
+    "runtime-main.js": "/cookbook/static/js/runtime-main.1938a312.js",
+    "runtime-main.js.map": "/cookbook/static/js/runtime-main.1938a312.js.map",
+    "static/js/2.44df3f44.chunk.js": "/cookbook/static/js/2.44df3f44.chunk.js",
+    "static/js/2.44df3f44.chunk.js.map": "/cookbook/static/js/2.44df3f44.chunk.js.map",
+    "static/js/3.44774c07.chunk.js": "/cookbook/static/js/3.44774c07.chunk.js",
+    "static/js/3.44774c07.chunk.js.map": "/cookbook/static/js/3.44774c07.chunk.js.map",
+    "index.html": "/cookbook/index.html",
+    "static/css/main.4b9a9ec3.chunk.css.map": "/cookbook/static/css/main.4b9a9ec3.chunk.css.map",
+    "static/js/2.44df3f44.chunk.js.LICENSE.txt": "/cookbook/static/js/2.44df3f44.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.1938a312.js",
+    "static/js/2.44df3f44.chunk.js",
+    "static/css/main.4b9a9ec3.chunk.css",
+    "static/js/main.5889b2a7.chunk.js"
+  ]
+}
