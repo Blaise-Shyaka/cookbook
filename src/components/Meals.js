@@ -2,19 +2,22 @@ import { useEffect } from "react";
 import { connect } from "react-redux";
 import { fetchByCategory } from "../actions/actionCreators";
 import Meal from "./Meal";
+import * as mealsStyles from '../styles/Meals.module.css'
 
 function Meals(props) {
   const { meals, fetchByCategory } = props;
   const mealsMarkup = meals.map(meal => <Meal key={meal.idMeal} mealId={meal.idMeal} mealThumbnail={meal.strMealThumb} mealTitle={meal.strMeal} />)
-  
+  const { mealsContainer, mealsWrapper } = mealsStyles;
+
   useEffect(() => {
     fetchByCategory('Beef')
   }, [fetchByCategory]);
-  
+
   return (
-    <div>
-      <h1>All Meals</h1>
-      {mealsMarkup}
+    <div className={mealsContainer}>
+      <div className={mealsWrapper}>
+        {mealsMarkup}
+      </div>
     </div>
   )
 }

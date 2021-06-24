@@ -1,0 +1,9 @@
+.mealsContainer {
+  margin: 5rem auto;
+}
+
+.mealsWrapper {
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}

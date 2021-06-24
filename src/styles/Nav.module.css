@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Prompt:wght@100;200;400;500;600;700;800;900&display=swap');
 
-.navWrapper, .searchWrapper {
+.navWrapper,
+.searchWrapper {
   display: flex;
 }
 
@@ -12,6 +13,7 @@
   background-color: #fff;
   top: 0;
   width: 90%;
+  z-index: 5;
 }
 
 .logo {
@@ -24,7 +26,8 @@
   margin: 0;
 }
 
-.searchWrapper input, .filterWrapper select {
+.searchWrapper input,
+.filterWrapper select {
   background-color: rgb(247, 247, 247);
   margin-right: 10px;
 }
@@ -36,7 +39,9 @@
   font-size: 0.9rem;
 }
 
-.searchWrapper input, .searchWrapper button, .filterWrapper select {
+.searchWrapper input,
+.searchWrapper button,
+.filterWrapper select {
   border: none;
   outline: none;
   border-radius: 25px;
