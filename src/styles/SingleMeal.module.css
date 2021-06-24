@@ -1,0 +1,49 @@
+.singleMealContainer {
+  margin-top: 5rem;
+}
+
+.mealInstrContainer {
+  display: flex;
+  justify-content: space-evenly;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.imgIngrWrapper {
+  width: 20%;
+}
+
+.mealImgWrapper {
+  width: 75%;
+  margin: 0 auto;
+}
+
+.mealImgWrapper img {
+  width: 100%;
+  border-radius: 50%;
+}
+
+.titleInstructionsWrapper {
+  width: 60%;
+}
+
+.singleMealContainer li {
+  list-style-type: "\1F44D";
+}
+
+.singleMealContainer a {
+  text-decoration: none;
+  border-color: #111103;
+  border-bottom: 2px solid #111103;
+  color: #111103;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 0.9rem;
+  outline: none;
+  padding: 0.5rem;
+}
+
+.singleMealContainer a:hover {
+  background-color: #111103;
+  color: #fefefe;
+  border-radius: 25px;
+  padding: 0.5rem 1.5rem;
+}

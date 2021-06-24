@@ -2,10 +2,12 @@ import { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { useParams, Link } from 'react-router-dom';
 import { fetchOneMeal } from '../actions/actionCreators';
+import * as singleMealStyles from '../styles/SingleMeal.module.css';
 
 function SingleMeal(props) {
   const { id } = useParams()
   const { fetchOneMeal, oneMeal } = props
+  const { singleMealContainer, mealInstrContainer, mealImgWrapper, titleInstructionsWrapper, imgIngrWrapper } = singleMealStyles;
 
   useEffect(() => {
     fetchOneMeal(id);
@@ -42,32 +44,34 @@ function SingleMeal(props) {
     oneMeal.strMeasure12,
   ]
 
-  console.log(measures)
-
-  const ingredientsMarkup = ingredients.map(ingr => ingr && <li>{ingr}</li>)
-  const measuresMarkup = measures.map(mes => (mes ? mes.trim() : '') && <li>{mes}</li>)
+  const ingredientsMarkup = ingredients.map(ingr => ingr && ingr)
+  const measuresMarkup = measures.map(mes => (mes ? mes.trim() : '') && mes)
+  const measOfIngredients = ingredientsMarkup.map(ingr => {
+    const ingrIndex = ingredientsMarkup.indexOf(ingr);
+    console.log('ingrIndex', ingrIndex)
+    return <li><span>{ingr}</span>: <span>{measuresMarkup[ingrIndex]}</span></li>
+  })
 
   return (
-    <div>
+    <div className={singleMealContainer}>
       <Link to="/">Back</Link>
       <div>
-        <div>
-          <div>
-            <img src={strMealThumb} alt={strMeal} />
+        <div className={mealInstrContainer}>
+          <div className={imgIngrWrapper}>
+            <div className={mealImgWrapper}>
+              <img src={strMealThumb} alt={strMeal} />
+            </div>
+            <div>
+              <ul>
+                {measOfIngredients}
+              </ul>
+            </div>
           </div>
-          <div>
+          <div className={titleInstructionsWrapper}>
             <h2>{strMeal}</h2>
             <p>{strInstructions}</p>
             <p>{strTags}</p>
           </div>
-        </div>
-        <div>
-          <ul>
-            {ingredientsMarkup}
-          </ul>
-          <ul>
-            {measuresMarkup}
-          </ul>
         </div>
       </div>
     </div>
