@@ -6,10 +6,12 @@ import {
   Route,
 } from "react-router-dom";
 import SingleMeal from './SingleMeal';
+import * as appStyles from '../styles/App.module.css'
 
 function App() {
+  const { app } = appStyles
   return (
-    <div className="App">
+    <div className={app}>
       <Nav />
       <Switch>
         <Route exact path="/" component={Meals}></Route>

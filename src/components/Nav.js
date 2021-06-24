@@ -1,8 +1,11 @@
 import { connect } from 'react-redux';
 import { fetchBySearch } from '../actions/actionCreators';
 import Filter from './Filter';
+import navStyles from '../styles/Nav.module.css';
 
 function Nav(props) {
+  const { navWrapper, searchWrapper, logo, filterWrapper } = navStyles;
+
   function searchHandler() {
     const userInput = document.querySelector('#searchInput').value;
     const { fetchBySearch } = props;
@@ -10,15 +13,15 @@ function Nav(props) {
   }
 
   return (
-    <nav>
-      <div>
-        <img src="" alt="Logo"/>
+    <nav className={navWrapper}>
+      <div className={logo}>
+        <p>CookBook</p>
       </div>
-      <div>
-        <input type="search" placeholder="Search Meal" id="searchInput" />
-        <button id="searchButton" onClick={() => searchHandler() } >Search</button>
+      <div className={searchWrapper}>
+        <input type="search" placeholder="Search Meal By Name" id="searchInput" />
+        <button onClick={() => searchHandler() } >Search</button>
       </div>
-      <div>
+      <div className={filterWrapper}>
         <Filter defaultOption="Filter By Category"/>
         <Filter defaultOption="Filter By Area"/>
       </div>

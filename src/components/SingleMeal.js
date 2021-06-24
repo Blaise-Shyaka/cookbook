@@ -42,8 +42,10 @@ function SingleMeal(props) {
     oneMeal.strMeasure12,
   ]
 
+  console.log(measures)
+
   const ingredientsMarkup = ingredients.map(ingr => ingr && <li>{ingr}</li>)
-  const measuresMarkup = measures.map(mes => mes.trim() && <li>{mes}</li>)
+  const measuresMarkup = measures.map(mes => (mes ? mes.trim() : '') && <li>{mes}</li>)
 
   return (
     <div>
