@@ -2,6 +2,11 @@
 
 CookBook allows you to search for meals, view ingredients, as well as preparation instructions. It also provides the ability to filter meals by Category, Area, and/or Ingredients.
 
+## Screenshots
+
+![Home page Screenshot](src/images/scrnsht1.png)
+![Single meal page Screenshot](src/images/scrnsht2.png)
+
 ## Built With
 
 - React JS
@@ -10,7 +15,7 @@ CookBook allows you to search for meals, view ingredients, as well as preparatio
 
 ## Live Demo
 
-[Live demo link]()
+[Live demo link](https://relaxed-yonath-f0b0e7.netlify.app/)
 
 ## Getting Started
 ### Requirements
