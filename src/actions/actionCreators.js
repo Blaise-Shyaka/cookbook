@@ -1,56 +1,58 @@
-import { FILTERBYCATEGORY, FILTERBYAREA, SEARCH, UPDATEMEALS, GETCATEGORIES, GETAREAS, GETONEMEAL } from "../actions/index";
+import {
+  FILTERBYCATEGORY, FILTERBYAREA, SEARCH, UPDATEMEALS, GETCATEGORIES, GETAREAS, GETONEMEAL,
+} from './index';
 
 export function filterByCategory(payload) {
   return {
     type: FILTERBYCATEGORY,
-    payload
-  }
+    payload,
+  };
 }
 
 export function filterByArea(payload) {
   return {
     type: FILTERBYAREA,
-    payload
-  }
+    payload,
+  };
 }
 
 export function search(payload) {
   return {
     type: SEARCH,
-    payload
-  }
+    payload,
+  };
 }
 
 export function updateMealsList(payload) {
   return {
     type: UPDATEMEALS,
-    payload
-  }
+    payload,
+  };
 }
 
 export function getCategories(categories) {
   return {
     type: GETCATEGORIES,
-    payload: categories
-  }
+    payload: categories,
+  };
 }
 
 export function getAreas(areas) {
   return {
     type: GETAREAS,
-    payload: areas
-  }
+    payload: areas,
+  };
 }
 
 export function getOneMeal(meal) {
   return {
     type: GETONEMEAL,
-    payload: meal
-  }
+    payload: meal,
+  };
 }
 
 export function fetchByCategory(category) {
-  return async function (dispatch) {
+  return async function fetchingByCategory(dispatch) {
     const cleanCategoryName = category.trim().toLowerCase();
     dispatch(filterByCategory(cleanCategoryName));
     try {
@@ -60,11 +62,11 @@ export function fetchByCategory(category) {
     } catch (e) {
       dispatch(updateMealsList(e.message));
     }
-  }
+  };
 }
 
 export function fetchByArea(area) {
-  return async function (dispatch) {
+  return async function fetchingByArea(dispatch) {
     const cleanAreaName = area.trim().toLowerCase();
     dispatch(filterByArea(cleanAreaName));
     try {
@@ -74,11 +76,11 @@ export function fetchByArea(area) {
     } catch (e) {
       dispatch(updateMealsList(e.message));
     }
-  }
+  };
 }
 
 export function fetchBySearch(searchTerm) {
-  return async function (dispatch) {
+  return async function fetchingBySearch(dispatch) {
     const cleanSearchTerm = searchTerm.trim().toLowerCase();
     dispatch(search(cleanSearchTerm));
     try {
@@ -88,47 +90,50 @@ export function fetchBySearch(searchTerm) {
     } catch (e) {
       dispatch(updateMealsList(e.message));
     }
-  }
+  };
 }
 
 export function fetchCategories() {
-  return async function (dispatch) {
+  return async function fetchingByCategories(dispatch) {
     const url = 'https://www.themealdb.com/api/json/v1/1/list.php?c=list';
 
     try {
       const response = await fetch(url);
-      const data = await response.json()
-      dispatch(getCategories(data.meals))
+      const data = await response.json();
+      dispatch(getCategories(data.meals));
+      return data;
     } catch (e) {
-      return e.message
+      return e.message;
     }
-  }
+  };
 }
 
 export function fetchAreas() {
-  return async function (dispatch) {
+  return async function fetchingByAreas(dispatch) {
     const url = 'https://www.themealdb.com/api/json/v1/1/list.php?a=list';
 
     try {
       const response = await fetch(url);
-      const data = await response.json()
-      dispatch(getAreas(data.meals))
+      const data = await response.json();
+      dispatch(getAreas(data.meals));
+      return data;
     } catch (e) {
-      return e.message
+      return e.message;
     }
-  }
+  };
 }
 
 export function fetchOneMeal(mealId) {
-  return async function(dispatch) {
+  return async function fetchingOneMeal(dispatch) {
     const url = `https://www.themealdb.com/api/json/v1/1/lookup.php?i=${mealId}`;
 
     try {
       const response = await fetch(url);
       const data = await response.json();
-      dispatch(getOneMeal(data.meals[0]))
-    } catch(e) {
+      dispatch(getOneMeal(data.meals[0]));
+      return data;
+    } catch (e) {
       return e.message;
     }
-  }
+  };
 }

@@ -1,16 +1,24 @@
-import { useEffect } from "react";
-import { connect } from "react-redux";
-import { fetchByCategory } from "../actions/actionCreators";
-import Meal from "./Meal";
-import * as mealsStyles from '../styles/Meals.module.css'
+import { useEffect } from 'react';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
+import { fetchByCategory } from '../actions/actionCreators';
+import Meal from './Meal';
+import * as mealsStyles from '../styles/Meals.module.css';
 
 function Meals(props) {
   const { meals, fetchByCategory } = props;
-  const mealsMarkup = meals.map(meal => <Meal key={meal.idMeal} mealId={meal.idMeal} mealThumbnail={meal.strMealThumb} mealTitle={meal.strMeal} />)
+  const mealsMarkup = meals.map((meal) => (
+    <Meal
+      key={meal.idMeal}
+      mealId={meal.idMeal}
+      mealThumbnail={meal.strMealThumb}
+      mealTitle={meal.strMeal}
+    />
+  ));
   const { mealsContainer, mealsWrapper } = mealsStyles;
 
   useEffect(() => {
-    fetchByCategory('Beef')
+    fetchByCategory('Beef');
   }, [fetchByCategory]);
 
   return (
@@ -19,8 +27,15 @@ function Meals(props) {
         {mealsMarkup}
       </div>
     </div>
-  )
+  );
 }
+
+Meals.propTypes = {
+  meals: PropTypes.arrayOf(PropTypes.shape({
+    strCategory: 'Beef',
+  })).isRequired,
+  fetchByCategory: PropTypes.func.isRequired,
+};
 
 function mapStateToProps(state) {
   const { meals } = state;
@@ -29,8 +44,8 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
   return {
-    fetchByCategory: cat => dispatch(fetchByCategory(cat))
-  }
+    fetchByCategory: (cat) => dispatch(fetchByCategory(cat)),
+  };
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Meals)
+export default connect(mapStateToProps, mapDispatchToProps)(Meals);
