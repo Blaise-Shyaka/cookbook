@@ -1,19 +1,28 @@
 import { useEffect } from 'react';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 import { useParams, Link } from 'react-router-dom';
 import { fetchOneMeal } from '../actions/actionCreators';
 import * as singleMealStyles from '../styles/SingleMeal.module.css';
 
 function SingleMeal(props) {
-  const { id } = useParams()
-  const { fetchOneMeal, oneMeal } = props
-  const { singleMealContainer, mealInstrContainer, mealImgWrapper, titleInstructionsWrapper, imgIngrWrapper } = singleMealStyles;
+  const { id } = useParams();
+  const { fetchOneMeal, oneMeal } = props;
+  const {
+    singleMealContainer,
+    mealInstrContainer,
+    mealImgWrapper,
+    titleInstructionsWrapper,
+    imgIngrWrapper,
+  } = singleMealStyles;
 
   useEffect(() => {
     fetchOneMeal(id);
-  })
+  });
 
-  const { strMeal, strInstructions, strTags, strMealThumb } = oneMeal;
+  const {
+    strMeal, strInstructions, strTags, strMealThumb,
+  } = oneMeal;
   const ingredients = [
     oneMeal.strIngredient1,
     oneMeal.strIngredient2,
@@ -27,7 +36,7 @@ function SingleMeal(props) {
     oneMeal.strIngredient10,
     oneMeal.strIngredient11,
     oneMeal.strIngredient12,
-  ]
+  ];
 
   const measures = [
     oneMeal.strMeasure1,
@@ -42,15 +51,22 @@ function SingleMeal(props) {
     oneMeal.strMeasure10,
     oneMeal.strMeasure11,
     oneMeal.strMeasure12,
-  ]
+  ];
 
-  const ingredientsMarkup = ingredients.map(ingr => ingr && ingr)
-  const measuresMarkup = measures.map(mes => (mes ? mes.trim() : '') && mes)
-  const measOfIngredients = ingredientsMarkup.map(ingr => {
+  const ingredientsMarkup = ingredients.map((ingr) => ingr && ingr);
+  const measuresMarkup = measures.map((mes) => (mes ? mes.trim() : '') && mes);
+  const measOfIngredients = ingredientsMarkup.map((ingr) => {
     const ingrIndex = ingredientsMarkup.indexOf(ingr);
-    console.log('ingrIndex', ingrIndex)
-    return <li><span>{ingr}</span>: <span>{measuresMarkup[ingrIndex]}</span></li>
-  })
+
+    return (
+      <li key={ingrIndex}>
+        <span>{ingr}</span>
+        :
+        {' '}
+        <span>{measuresMarkup[ingrIndex]}</span>
+      </li>
+    );
+  });
 
   return (
     <div className={singleMealContainer}>
@@ -75,18 +91,24 @@ function SingleMeal(props) {
         </div>
       </div>
     </div>
-  )
+  );
 }
+
+SingleMeal.propTypes = {
+  fetchOneMeal: PropTypes.func.isRequired,
+  oneMeal: PropTypes.objectOf(PropTypes.shape({ idMeal: '52834' })).isRequired,
+
+};
 
 function mapStateToProps(state) {
   const { oneMeal } = state;
-  return { oneMeal }
+  return { oneMeal };
 }
 
 function mapDispatchToProps(dispatch) {
   return {
-    fetchOneMeal: meal => dispatch(fetchOneMeal(meal))
-  }
+    fetchOneMeal: (meal) => dispatch(fetchOneMeal(meal)),
+  };
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(SingleMeal)
+export default connect(mapStateToProps, mapDispatchToProps)(SingleMeal);

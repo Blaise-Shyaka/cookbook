@@ -9,7 +9,6 @@ import App from './components/App';
 import reportWebVitals from './reportWebVitals';
 
 const store = createStore(reducer, applyMiddleware(thunkMiddleware));
-console.log(store.getState())
 
 ReactDOM.render(
   <React.StrictMode>
@@ -19,7 +18,7 @@ ReactDOM.render(
       </Provider>
     </Router>
   </React.StrictMode>,
-  document.getElementById('root')
+  document.getElementById('root'),
 );
 
 // If you want to start measuring performance in your app, pass a function

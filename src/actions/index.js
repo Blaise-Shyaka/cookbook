@@ -4,4 +4,4 @@ export const SEARCH = 'SEARCH';
 export const UPDATEMEALS = 'UPDATEMEALS';
 export const GETCATEGORIES = 'GETCATEGORIES';
 export const GETAREAS = 'GETAREAS';
-export const GETONEMEAL = 'GETONEMEAL'
+export const GETONEMEAL = 'GETONEMEAL';
