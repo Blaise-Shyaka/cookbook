@@ -1,6 +1,6 @@
 # CookBook
 
-CookBook allows you to search for meals, view ingredients, as well as preparation instructions. It also provides the ability to filter meals by Category, Area, and/or Ingredients.
+CookBook is a catalogue of meals and recipes. It allows you to search for meals, view ingredients, as well as preparation instructions. It also provides the ability to filter meals by Category, Area, and/or Ingredients.
 
 ## Screenshots
 
