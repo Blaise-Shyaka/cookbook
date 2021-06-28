@@ -66,10 +66,10 @@ function Filter(props) {
 Filter.propTypes = {
   defaultOption: PropTypes.string.isRequired,
   categories: PropTypes.arrayOf(PropTypes.shape({
-    strCategory: 'Beef',
+    strCategory: PropTypes.string,
   })).isRequired,
   areas: PropTypes.arrayOf(PropTypes.shape({
-    strArea: 'American',
+    strArea: PropTypes.string,
   })).isRequired,
   fetchAreas: PropTypes.func.isRequired,
   fetchCategories: PropTypes.func.isRequired,

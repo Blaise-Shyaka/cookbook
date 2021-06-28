@@ -19,5 +19,5 @@ export default function Meal(props) {
 Meal.propTypes = {
   mealThumbnail: PropTypes.string.isRequired,
   mealTitle: PropTypes.string.isRequired,
-  mealId: PropTypes.number.isRequired,
+  mealId: PropTypes.string.isRequired,
 };

@@ -32,7 +32,7 @@ function Meals(props) {
 
 Meals.propTypes = {
   meals: PropTypes.arrayOf(PropTypes.shape({
-    strCategory: 'Beef',
+    strCategory: PropTypes.string,
   })).isRequired,
   fetchByCategory: PropTypes.func.isRequired,
 };
