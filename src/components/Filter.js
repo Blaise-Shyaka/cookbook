@@ -53,8 +53,11 @@ function Filter(props) {
   }
 
   return (
-    <select onChange={(event) => filterHandler(event)}>
-      <option selected disabled value="">{defaultOption}</option>
+    <select
+      defaultValue={defaultOption}
+      onChange={(event) => filterHandler(event)}
+    >
+      <option value={defaultOption} disabled>{defaultOption}</option>
       {optionsMarkup}
     </select>
   );
