@@ -2,7 +2,7 @@ import {
   FILTERBYCATEGORY, FILTERBYAREA, SEARCH, UPDATEMEALS, GETCATEGORIES, GETAREAS, GETONEMEAL,
 } from '../actions/index';
 
-const defaultState = {
+export const defaultState = {
   categoryFilter: '',
   areaFilter: '',
   searchTerm: '',
