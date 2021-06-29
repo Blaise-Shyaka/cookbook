@@ -1,0 +1,61 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Meals Component Should display a list of meal items 1`] = `
+<div>
+  <nav
+    className="navWrapper"
+  >
+    <div
+      className="logo"
+    >
+      <p>
+        CookBook
+      </p>
+    </div>
+    <div
+      className="searchWrapper"
+    >
+      <input
+        id="searchInput"
+        placeholder="Search Meal By Name"
+        type="search"
+      />
+      <button
+        onClick={[Function]}
+        type="button"
+      >
+        Search
+      </button>
+    </div>
+    <div
+      className="filterWrapper"
+    >
+      <select
+        defaultValue="Filter By Category"
+        onChange={[Function]}
+      >
+        <option
+          disabled={true}
+          value="Filter By Category"
+        >
+          Filter By Category
+        </option>
+      </select>
+      <select
+        defaultValue="Filter By Area"
+        onChange={[Function]}
+      >
+        <option
+          disabled={true}
+          value="Filter By Area"
+        >
+          Filter By Area
+        </option>
+      </select>
+    </div>
+  </nav>
+  <div>
+    <div />
+  </div>
+</div>
+`;
