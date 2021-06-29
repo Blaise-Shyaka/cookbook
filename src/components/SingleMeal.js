@@ -53,7 +53,10 @@ function SingleMeal(props) {
     oneMeal.strMeasure12,
   ];
 
-  const ingredientsMarkup = ingredients.map((ingr) => ingr && ingr);
+  const ingredientsMarkup = ingredients
+    .map((ingr) => (ingr || false))
+    .filter((elt) => elt !== false);
+
   const measuresMarkup = measures.map((mes) => (mes ? mes.trim() : '') && mes);
   const measOfIngredients = ingredientsMarkup.map((ingr) => {
     const ingrIndex = ingredientsMarkup.indexOf(ingr);
